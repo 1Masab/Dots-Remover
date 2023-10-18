@@ -19,10 +19,10 @@
 
 <body>
   <div class="container">
-    <h1>أزالة النقاط من النص</h1>
+    <h1>إزالة النقاط من النص</h1>
     <form>
       <textarea cols="50" rows="5" placeholder="أكتب النص هنا" id="inputText"></textarea>
-      <button type="button" onclick="RemoveDots()">أزالة النقاط</button>
+      <button type="button" onclick="RemoveDots()">إزالة النقاط</button>
     </form>
     <textarea id="output" cols="50" rows="5" readonly placeholder="سيظهر النص الجديد هنا"></textarea>
     <button type="button" id="copyButton">نسخ</button>
@@ -69,7 +69,7 @@
       textArea.select();
       document.execCommand("copy");
       document.body.removeChild(textArea);
-      alert("تم النسخ ألى الحافظة");
+      alert("تم النسخ إلى الحافظة");
     }
     document
       .getElementById("copyButton")
