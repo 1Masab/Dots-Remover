@@ -10,6 +10,11 @@ body {
   justify-content: center;
   align-items: center;
   padding-top: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+}
+html {
+  width: 100%;
 }
 h1 {
   padding: 1rem 0;
@@ -24,7 +29,7 @@ a {
   color: #77ba86;
   text-decoration: none;
 }
-form {
+.container {
   max-width: 500px;
 }
 button {
@@ -39,7 +44,6 @@ button {
   color: white;
   cursor: pointer;
   margin: 10px 0;
-  max-width: 500px;
   background: #129700b7;
   outline: none;
   border: none;
@@ -48,5 +52,5 @@ textarea {
   border-radius: 10px;
   border: 1px solid gray;
   padding: 1rem;
-  max-width: 500px;
+  width: 100%;
 }
