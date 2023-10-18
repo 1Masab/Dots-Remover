@@ -56,8 +56,7 @@
       let modifiedText = "";
       for (let i = 0; i < inputText.length; i++) {
         const currentLetter = inputText[i];
-        let replacement = characterMapping[currentLetter];
-        // currentLetter === "ي" && currentLetter + 1 !== " " ? replacement = "\ufbe9" :  replacement;
+        const replacement = characterMapping[currentLetter];
         modifiedText += replacement ? replacement : currentLetter;
       }
       document.getElementById("output").textContent = modifiedText;
