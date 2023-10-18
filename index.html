@@ -56,7 +56,12 @@
       let modifiedText = "";
       for (let i = 0; i < inputText.length; i++) {
         const currentLetter = inputText[i];
-        const replacement = characterMapping[currentLetter];
+        let replacement = characterMapping[currentLetter];
+        if (currentLetter === "ق" && inputText[i + 1] !== " " && inputText[i + 1] !== undefined) {
+          replacement = "\u06A1"
+        } else {
+          replacement = characterMapping[currentLetter]
+        }
         modifiedText += replacement ? replacement : currentLetter;
       }
       document.getElementById("output").textContent = modifiedText;
