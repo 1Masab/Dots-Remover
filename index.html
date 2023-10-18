@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إزالة النقاط من النص</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200;300;700&display=swap" rel="stylesheet" />
+  <meta name="title" content="إزالة النقاط من النصوص العربية" />
+  <meta name="description" content="remove dots from Arabic text, مزيل النقاط من النصوص العربية" />
+  <meta name="keywords" content="convert, remove, text, dots, remove dots, ازاله النقاط" />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="language" content="Arabic" />
+</head>
+
+<body>
+  <div>
+    <h1>أزالة النقاط من النص</h1>
+    <form>
+      <textarea cols="50" rows="5" placeholder="أكتب النص هنا" id="inputText"></textarea>
+      <button type="button" onclick="RemoveDots()">أزالة النقاط</button>
+    </form>
+    <textarea id="output" cols="50" rows="5" readonly placeholder="سيظهر النص الجديد هنا"></textarea>
+    <button type="button" id="copyButton">نسخ</button>
+    <p>
+      made by
+      <a href="https://www.instagram.com/bmnapr" target="_blank">@FFFF</a>
+    </p>
+  </div>
+  <script>
+    function RemoveDots() {
+      const inputText = document.getElementById("inputText").value;
+      const characterMapping = {
+        "\u0628": "\u066E",
+        "\u062A": "\u066E",
+        "\u062B": "\u066E",
+        "\u062C": "\u062D",
+        "\u062E": "\u062D",
+        "\u0630": "\u062F",
+        "\u0632": "\u0631",
+        "\u0634": "\u0633",
+        "\u0636": "\u0635",
+        "\u0638": "\u0637",
+        "\u063A": "\u0639",
+        "\u0646": "\u06BA",
+        "\u064A": "\u0649",
+        "\u0629": "\u0647",
+        "\u0642": "\u066F",
+        "\u0641": "\u06A1",
+      };
+
+      let modifiedText = "";
+      for (let i = 0; i < inputText.length; i++) {
+        const currentLetter = inputText[i];
+        const replacement = characterMapping[currentLetter];
+        modifiedText += replacement ? replacement : currentLetter;
+      }
+      document.getElementById("output").textContent = modifiedText;
+    }
+    function copytheText() {
+      const output = document.getElementById("output").value;
+      const textArea = document.createElement("textarea");
+      textArea.value = output;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      alert("تم النسخ ألى الحافظة");
+    }
+    document
+      .getElementById("copyButton")
+      .addEventListener("click", copytheText);
+  </script>
+</body>
+
+</html>
